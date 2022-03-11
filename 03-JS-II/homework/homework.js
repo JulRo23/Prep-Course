@@ -168,6 +168,14 @@ function esPrimo(numero) {
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
   
+  if (numero === 0 || numero === 1) return false;
+
+  for(var i = numero-1; i > 1; i--) {
+    if(numero % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 function esVerdadero(valor){
