@@ -55,9 +55,9 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  var palabranueva = "";
-  for (i = 0; i < palabras.length; i++){
-    palabranueva = palabranueva + " " + palabras[i]
+  var palabranueva = palabras[0];
+  for (i = 1; i < palabras.length; i++){
+    palabranueva = palabranueva + " " + palabras[i];
   }
   return palabranueva;
 }
@@ -114,17 +114,23 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-  
+  if(arguments.length === 0) return 0;
+  if(arguments.length === 1) return arguments[0];
+  var mul = 1;
+  for (i = 0; i < arguments.length; i++){
+    mul *= arguments[i]; 
+  }
+  return mul;
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-  var cant = [];
+  var cant = 0;
   for(i = 0; i < arreglo.length; i++){
     if(arreglo[i] > 18 ){
-      cant.push(arreglo[i]);
+      cant++;
     }
   }
   return cant;
@@ -145,13 +151,15 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  var element = n.indexOf("9");
-  for (i=0; i<n.length; i++){
-    if(n[i] === element){
+  return n.toString().indexOf(9) === 0;
+
+  /*
+    var element = n.toString();
+    if(0 === element.indexOf(9)){
       return true;
     }
     return false;
-  }
+    */
 }
 
 
@@ -159,17 +167,15 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  /*
-  for (i=0; i<arreglo.length; i++){
-    if(arreglo[i] === arreglo){
-      return true;
+  for (i=0; i < arreglo.length; i++){
+    if(arreglo[i] != arreglo[i+1]){
+      return false;
     }
-    return false;
+    return true;
   }
   
-  var todoIgual = arr => arr.every(v => v === arr[0]);
-  return todoIgual(arreglo);
-  */
+  /* var todoIgual = arr => arr.every(v => v === arr[0]);
+  return todoIgual(arreglo); */
  
 } 
 
@@ -180,14 +186,14 @@ function mesesDelAño(array) {
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
   var meses = [];
-  for (i=0; i<array.length; i++){
-    if(array[i] === "Enero" && array[i] === "Marzo" && array[i] === "Noviembre") {
+  for (i=0; i < array.length; i++){
+    if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
       meses.push(array[i]);
-      
-      return meses;
     }
-    return "No se encontraron los meses pedidos";
   }
+
+  if(meses.length === 3) return meses;
+  return "No se encontraron los meses pedidos";
 }
 
 
@@ -213,6 +219,17 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+  var array = [];
+  var num = numero;
+  for (i=0; i < 10; i++){
+    num = num + 2;
+    array.push(num);
+
+    if(num === i){
+      return "Se interrumpió la ejecución";
+    }
+  }
+  return array;
 }
 
 
@@ -223,6 +240,13 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var array = [];
+  var num = numero;
+  for (i=0; i < 9; i++){
+    num = num + 2;
+    array.push(num);
+  }
+  return array;
 }
 
 

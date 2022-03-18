@@ -41,9 +41,12 @@ function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
+  return array.forEach(cb);
+  /*
   for (i = 0; i < array.length; i++){
     cb(array[i]);
-  }
+  } 
+  */
 }
 
 function map(array, cb) {
@@ -52,11 +55,7 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
   var newArray = [];
-  for (i = 0; i < array.length; i++){
-    cb(array[i]);
-    newArray.push(cb);
-  }
-  return newArray;
+  return newArray = array.map(cb);
 }
 
 function filter(array) {
@@ -64,25 +63,7 @@ function filter(array) {
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
   var newArray = [];
-  for (i = 0; i < array.length; i++){
-    newArray.push(array.indexOf("a"));
-  }
-  return newArray;
-
-  /*
-  var newArray = [];
-  var arr;
-  var element = array.indexOf("a");
-
-  for (i = 0; i < array.length; i++){
-    arr = array[i];
-    if(arr = element)
-    newArray.push(arr);
-  }
-
-  return newArray;
-  */
-
+  return newArray = array.filter(arr => arr.indexOf("a") === 0);
 }
 
 // No modificar nada debajo de esta línea
